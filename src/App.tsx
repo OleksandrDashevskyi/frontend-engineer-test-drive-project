@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddCustomerRequestForm from './components/AddCustomerRequestForm';
 import CustomerRequestList from './components/CustomerRequestList';
+import { Container } from 'semantic-ui-react';
 // @ts-ignore
 import { assignTeamMember } from './services/utils';
 
@@ -41,10 +42,10 @@ const App = () => {
     }
 
     return (
-        <>
+        <div style={{margin: "auto", width: "50%", display: "flex", flexDirection: "column"}}>
             <CustomerRequestList customerRequests={customerRequests} toggleCustomerRequest={toggleCustomerRequest} />
             <AddCustomerRequestForm addCustomerRequest={addCustomerRequest} />
-        </>
+        </div>
     )
 }
 

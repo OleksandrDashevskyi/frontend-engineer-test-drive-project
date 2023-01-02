@@ -1,18 +1,23 @@
 import React from 'react';
 import CustomerRequestItem from './CustomerRequestItem';
+import { Container } from "semantic-ui-react";
 
 interface Props {
     customerRequests: CustomerRequest[];
     toggleCustomerRequest: ToggleCustomerRequest;
 }
 
-const CustomerRequestList: React.FC<Props> = ({ customerRequests, toggleCustomerRequest }) => {
+const CustomerRequestList: React.FC<Props> =
+    ({ customerRequests,
+         toggleCustomerRequest
+    }) => {
+        console.log(customerRequests, "customerRequests")
     return (
-        <ul>
+        <div>
             {customerRequests.map((customerRequest) => (
                 <CustomerRequestItem key={customerRequest.customerRequestDescription} customerRequest={customerRequest} toggleCustomerRequest={toggleCustomerRequest} />
             ))}
-        </ul>
+        </div>
     )
 }
 
