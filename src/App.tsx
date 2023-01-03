@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useStoreActions, useStoreState } from "./stores/operational/hooks";
 import AddCustomerRequestForm from './components/AddCustomerRequestForm/index';
 import CustomerRequestList from './components/CustomerRequestList/index';
 import "./App.css";
-// @ts-ignore
 import { assignTeamMember } from './services/utils';
+
 
 const initialCustomerRequests: CustomerRequest[] = [
     {
@@ -21,7 +22,14 @@ const initialCustomerRequests: CustomerRequest[] = [
 ]
 
 const App = () => {
+
+    const operationalTeam = useStoreState((store) =>  store.operationalTeam)
+    console.log(operationalTeam, "operationalTeam")
     const [customerRequests, setCustomerRequests] = useState(initialCustomerRequests);
+
+    useEffect(() => {
+
+    }, [])
 
     const toggleCustomerRequest = (selectedCustomerRequest: CustomerRequest) => {
         const newCustomerRequests = customerRequests.map((customerRequest) => {

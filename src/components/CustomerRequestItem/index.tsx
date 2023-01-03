@@ -8,6 +8,14 @@ interface Props {
 }
 
 const CustomerRequestItem: React.FC<Props> = ({ customerRequest, toggleCustomerRequest }) => {
+    console.log(customerRequest, "customerRequest")
+    const options: object = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    }
+    const convertedAssignedDate = customerRequest.assignedDate.toLocaleDateString("en-US", options)
+
     return (
         <Container className="container">
             <div style={{ textDecoration: customerRequest.complete ? 'line-through' : undefined }}>
@@ -19,7 +27,7 @@ const CustomerRequestItem: React.FC<Props> = ({ customerRequest, toggleCustomerR
                     />
                     <div className="task-header">{customerRequest.customerRequestDescription}</div>
                 </div>
-                <div className="main-text">{`Assigned to ${customerRequest.assignee} on ${customerRequest.assignedDate}`}</div>
+                <div className="main-text">{`Assigned to ${customerRequest.assignee} on ${convertedAssignedDate}`}</div>
             </div>
         </Container>
     );
