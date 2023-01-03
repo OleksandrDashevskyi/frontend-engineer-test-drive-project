@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    background: #ffffff;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    border: 1px solid #000000;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.check-box {
+    margin-right: 0.5rem;
+}
+
+.task-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.main-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+}

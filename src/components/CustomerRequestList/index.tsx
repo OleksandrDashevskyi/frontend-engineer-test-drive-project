@@ -1,6 +1,5 @@
 import React from 'react';
-import CustomerRequestItem from './CustomerRequestItem';
-import { Container } from "semantic-ui-react";
+import CustomerRequestItem from '../CustomerRequestItem/index';
 
 interface Props {
     customerRequests: CustomerRequest[];

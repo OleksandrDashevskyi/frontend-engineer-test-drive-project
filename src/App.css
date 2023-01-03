@@ -1,0 +1,10 @@
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.holding-container {
+    margin: auto;
+    width: 35%;
+}
