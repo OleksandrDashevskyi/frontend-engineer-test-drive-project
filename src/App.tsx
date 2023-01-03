@@ -6,6 +6,7 @@ import "./App.css";
 import { assignTeamMember } from './services/utils';
 import {StateServiceProvider} from "./HOC/StateServiceProvider";
 import {useStoreActions} from "./stores/operational/hooks";
+import {StoreState} from "./stores/model";
 
 
 
@@ -27,7 +28,7 @@ const initialCustomerRequests: CustomerRequest[] = [
 const App = () => {
 
 
-    const { getOperationalTeamList } = useStoreActions((actions) => actions.operations)
+    const { getOperationalTeamList } = useStoreActions((actions: any) => actions.operations)
     const [customerRequests, setCustomerRequests] = useState(initialCustomerRequests);
 
     useEffect(() => {
