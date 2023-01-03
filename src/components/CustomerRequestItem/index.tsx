@@ -8,7 +8,6 @@ interface Props {
 }
 
 const CustomerRequestItem: React.FC<Props> = ({ customerRequest, toggleCustomerRequest }) => {
-    console.log(customerRequest, "customerRequest")
     const options: object = {
         year: "numeric",
         month: "short",

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useStoreActions, useStoreState } from "./stores/operational/hooks";
+
 import AddCustomerRequestForm from './components/AddCustomerRequestForm/index';
 import CustomerRequestList from './components/CustomerRequestList/index';
 import "./App.css";
 import { assignTeamMember } from './services/utils';
+import {StateServiceProvider} from "./HOC/StateServiceProvider";
+import {useStoreActions} from "./stores/operational/hooks";
+
 
 
 const initialCustomerRequests: CustomerRequest[] = [
@@ -23,12 +26,13 @@ const initialCustomerRequests: CustomerRequest[] = [
 
 const App = () => {
 
-    const operationalTeam = useStoreState((store) =>  store.operationalTeam)
-    console.log(operationalTeam, "operationalTeam")
+
+    const { getOperationalTeamList } = useStoreActions((actions) => actions.operations)
     const [customerRequests, setCustomerRequests] = useState(initialCustomerRequests);
 
     useEffect(() => {
-
+        // const res = getOperationalTeamList();
+        // console.log(res)
     }, [])
 
     const toggleCustomerRequest = (selectedCustomerRequest: CustomerRequest) => {
@@ -50,12 +54,12 @@ const App = () => {
     }
 
     return (
-        <div className="main-container">
-            <div className="holding-container">
-                <CustomerRequestList customerRequests={customerRequests} toggleCustomerRequest={toggleCustomerRequest} />
-                <AddCustomerRequestForm addCustomerRequest={addCustomerRequest} />
+            <div className="main-container">
+                <div className="holding-container">
+                    <CustomerRequestList customerRequests={customerRequests} toggleCustomerRequest={toggleCustomerRequest} />
+                    <AddCustomerRequestForm addCustomerRequest={addCustomerRequest} />
+                </div>
             </div>
-        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { OperationalTeam } from "../stores/operational/Model";
+import { OperationalTeam } from "../stores/model";
 
 const emailAddresses = [
     "morena.marchand@example.com",
@@ -21,8 +21,8 @@ export const assignTeamMember = (): string => {
 
 export const getOperationsTeam = async () => {
     try {
-        const results = await axios.get<GetOperationsTeamResponse>("https://randomuser.me/api?results=5&seed=axle-team&inc=name,picture,id,email");
-        return results;
+        const res = await axios.get<GetOperationsTeamResponse>("https://randomuser.me/api?results=5&seed=axle-team&inc=name,picture,id,email");
+        return res?.data.results;
     } catch (error) {
         if (axios.isAxiosError(error)) {
             console.log("error message: ", error.message);

@@ -24,10 +24,14 @@ export interface OperationalTeam {
 }
 
 
-export interface OperationsModel {
+export interface OperationsStoreModel {
     operationalTeam: OperationalTeam[];
     customerRequestList: CustomerRequest[];
-    getOperationalTeamList: Thunk<OperationsModel, OperationalTeam | undefined>;
-    addOperationTeam: Action<OperationsModel, OperationalTeam[]>;
-    addCustomerRequest: Action<OperationsModel, CustomerRequest>;
+    getOperationalTeamList: Thunk<OperationsStoreModel, OperationalTeam[]>;
+    addOperationTeam: Action<OperationsStoreModel, OperationalTeam[]>;
+    addCustomerRequest: Action<OperationsStoreModel, CustomerRequest>;
+}
+
+export interface StoreState {
+    operations: OperationsStoreModel
 }
