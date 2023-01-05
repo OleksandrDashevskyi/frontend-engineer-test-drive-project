@@ -13,10 +13,18 @@ type GetOperationsTeamResponse = {
     results: OperationalTeam[];
 }
 
+type assignTeamMember = {
+    fullName: string,
+    avatar: string
+}
 
-export const assignTeamMember = (operationalTeam: OperationalTeam[]): string => {
+
+export const assignTeamMember = (operationalTeam: OperationalTeam[]): assignTeamMember => {
     const selectedEmployee = Math.floor(Math.random() * operationalTeam.length);
-    return `${operationalTeam[selectedEmployee].name.first} ${operationalTeam[selectedEmployee].name.last}`;
+    return {
+        fullName: `${operationalTeam[selectedEmployee].name.first} ${operationalTeam[selectedEmployee].name.last}`,
+        avatar: operationalTeam[selectedEmployee].picture.large
+    };
 }
 
 export const getOperationsTeam = async () => {

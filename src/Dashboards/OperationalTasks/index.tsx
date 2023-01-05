@@ -24,11 +24,14 @@ const OperationalTasks:React.FC = () => {
     };
 
     const addCustomerRequest: AddCustomerRequest = (customerRequestDescription: string) => {
+        const assignedTeamMember = assignTeamMember(operationalTeam)
         const newCustomerRequest = {
             customerRequestDescription,
             complete: false,
-            assignee: assignTeamMember(operationalTeam),
-            assignedDate: new Date() };
+            assignee: assignedTeamMember.fullName,
+            assignedDate: new Date(),
+            picture: assignedTeamMember.avatar
+        };
         setCustomerRequestList([...customerRequestList, newCustomerRequest])
     };
 
