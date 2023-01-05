@@ -1,0 +1,16 @@
+.custom-input {
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button {
+    color: #ffffff;
+    border-radius: 1rem;
+}

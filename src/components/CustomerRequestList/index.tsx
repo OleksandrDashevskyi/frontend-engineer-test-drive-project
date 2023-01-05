@@ -10,11 +10,14 @@ const CustomerRequestList: React.FC<Props> =
     ({ customerRequests,
          toggleCustomerRequest
     }) => {
-        console.log(customerRequests, "customerRequests")
     return (
         <div>
             {customerRequests.map((customerRequest) => (
-                <CustomerRequestItem key={customerRequest.customerRequestDescription} customerRequest={customerRequest} toggleCustomerRequest={toggleCustomerRequest} />
+                <CustomerRequestItem
+                    key={customerRequest.customerRequestDescription}
+                    customerRequest={customerRequest}
+                    toggleCustomerRequest={toggleCustomerRequest}
+                />
             ))}
         </div>
     )

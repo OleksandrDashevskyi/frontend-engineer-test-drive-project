@@ -14,9 +14,9 @@ type GetOperationsTeamResponse = {
 }
 
 
-export const assignTeamMember = (): string => {
-    const selectedEmployee = Math.floor(Math.random() * emailAddresses.length);
-    return emailAddresses[selectedEmployee];
+export const assignTeamMember = (operationalTeam: OperationalTeam[]): string => {
+    const selectedEmployee = Math.floor(Math.random() * operationalTeam.length);
+    return `${operationalTeam[selectedEmployee].name.first} ${operationalTeam[selectedEmployee].name.last}`;
 }
 
 export const getOperationsTeam = async () => {
