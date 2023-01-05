@@ -5,16 +5,13 @@ import { OperationsStoreModel } from "../model";
 export const OperationsState: OperationsStoreModel = {
     operationalTeam: [],
     customerRequestList: [],
-    getOperationalTeamList: thunk(async (actions) => {
-        const result = await getOperationsTeam();
-        console.log(result, "result")
-        return result
-
+    getOperationalTeamList: thunk(async () => {
+        return await getOperationsTeam();
     }),
-    addOperationTeam: action((state, payload) => {
-        console.log(state, "state")
-       state.operationalTeam = payload
+    setOperationTeam: action((state, payload) => {
+       state.operationalTeam = payload;
     }),
-    addCustomerRequest: action(() => {
+    setCustomerRequestList: action((state, payload) => {
+        state.customerRequestList = payload;
     }),
-}
+};

@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
-
-import AddCustomerRequestForm from './components/AddCustomerRequestForm/index';
-import CustomerRequestList from './components/CustomerRequestList/index';
+import React from 'react';
 import "./App.css";
 import { assignTeamMember } from './services/utils';
-import {StateServiceProvider} from "./HOC/StateServiceProvider";
-import {useStoreActions} from "./stores/operational/hooks";
-import {StoreState} from "./stores/model";
+import OperationalTasks from "./Dashboards/OperationalTasks";
+import { StateServiceProvider } from "./HOC/StateServiceProvider";
+
 
 
 
@@ -26,41 +23,12 @@ const initialCustomerRequests: CustomerRequest[] = [
 ]
 
 const App = () => {
-
-
-    const { getOperationalTeamList } = useStoreActions((actions: any) => actions.operations)
-    const [customerRequests, setCustomerRequests] = useState(initialCustomerRequests);
-
-    useEffect(() => {
-        // const res = getOperationalTeamList();
-        // console.log(res)
-    }, [])
-
-    const toggleCustomerRequest = (selectedCustomerRequest: CustomerRequest) => {
-        const newCustomerRequests = customerRequests.map((customerRequest) => {
-            if (customerRequest === selectedCustomerRequest) {
-                return {
-                    ...customerRequest,
-                    complete: !customerRequest.complete
-                }
-            }
-            return customerRequest;
-        });
-        setCustomerRequests(newCustomerRequests);
-    }
-
-    const addCustomerRequest: AddCustomerRequest = (customerRequestDescription: string) => {
-        const newCustomerRequest = { customerRequestDescription, complete: false, assignee: assignTeamMember(), assignedDate: new Date() };
-        setCustomerRequests([...customerRequests, newCustomerRequest])
-    }
-
     return (
-            <div className="main-container">
-                <div className="holding-container">
-                    <CustomerRequestList customerRequests={customerRequests} toggleCustomerRequest={toggleCustomerRequest} />
-                    <AddCustomerRequestForm addCustomerRequest={addCustomerRequest} />
-                </div>
-            </div>
+           <>
+               <StateServiceProvider >
+               <OperationalTasks />
+               </StateServiceProvider>
+           </>
     )
 }
 

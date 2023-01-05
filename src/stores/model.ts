@@ -28,8 +28,8 @@ export interface OperationsStoreModel {
     operationalTeam: OperationalTeam[];
     customerRequestList: CustomerRequest[];
     getOperationalTeamList: Thunk<OperationsStoreModel, OperationalTeam[]>;
-    addOperationTeam: Action<OperationsStoreModel, OperationalTeam[]>;
-    addCustomerRequest: Action<OperationsStoreModel, CustomerRequest>;
+    setOperationTeam: Action<OperationsStoreModel, OperationalTeam[]>;
+    setCustomerRequestList: Action<OperationsStoreModel, CustomerRequest[]>;
 }
 
 export interface StoreState {
