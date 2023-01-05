@@ -27,9 +27,11 @@ export interface OperationalTeam {
 export interface OperationsStoreModel {
     operationalTeam: OperationalTeam[];
     customerRequestList: CustomerRequest[];
+    paginatedCustomerRequestList: CustomerRequest[];
     getOperationalTeamList: Thunk<OperationsStoreModel, OperationalTeam[]>;
     setOperationTeam: Action<OperationsStoreModel, OperationalTeam[]>;
     setCustomerRequestList: Action<OperationsStoreModel, CustomerRequest[]>;
+    setPaginatedCustomerRequestList: Action<OperationsStoreModel, CustomerRequest[]>;
 }
 
 export interface StoreState {

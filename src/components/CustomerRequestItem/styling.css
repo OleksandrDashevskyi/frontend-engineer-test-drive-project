@@ -17,12 +17,12 @@
 
 .task-header {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin: 0.25rem 0.35rem 0.25rem 0.5rem;
 }
 
 .main-text {
@@ -30,4 +30,9 @@
     justify-content: center;
     align-items: center;
     font-size: 0.85rem;
+}
+
+.team-avatar {
+    position: absolute !important;
+    right: 0;
 }

@@ -1,14 +1,6 @@
 import axios from "axios";
 import { OperationalTeam } from "../stores/model";
 
-const emailAddresses = [
-    "morena.marchand@example.com",
-    "clara.jones@example.com",
-    "maria.jackson@example.com",
-    "leo.park@example.com",
-    "ada.garcia@example.com"
-];
-
 type GetOperationsTeamResponse = {
     results: OperationalTeam[];
 }
@@ -18,12 +10,11 @@ type assignTeamMember = {
     avatar: string
 }
 
-
 export const assignTeamMember = (operationalTeam: OperationalTeam[]): assignTeamMember => {
     const selectedEmployee = Math.floor(Math.random() * operationalTeam.length);
     return {
-        fullName: `${operationalTeam[selectedEmployee].name.first} ${operationalTeam[selectedEmployee].name.last}`,
-        avatar: operationalTeam[selectedEmployee].picture.large
+        fullName: `${operationalTeam[selectedEmployee]?.name.first} ${operationalTeam[selectedEmployee]?.name.last}`,
+        avatar: operationalTeam[selectedEmployee]?.picture?.large
     };
 }
 
@@ -40,4 +31,4 @@ export const getOperationsTeam = async () => {
             return "An unexpected error occurred"
         }
     }
-}
+};
