@@ -8,4 +8,4 @@ interface CustomerRequest {
 
 type ToggleCustomerRequest = (selectedRequest: CustomerRequest) => void;
 type AddCustomerRequest = (text: string) => void;
-type OnPageChange = (event: React.MouseEvent<HTMLAnchorElement>, data: object) => void
+type OnPageChange = (event: React.MouseEvent<HTMLAnchorElement>, data: any) => void

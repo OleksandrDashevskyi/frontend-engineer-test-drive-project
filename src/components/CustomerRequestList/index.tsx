@@ -1,23 +1,31 @@
 import React from 'react';
 import { Pagination } from 'semantic-ui-react';
 import CustomerRequestItem from '../CustomerRequestItem/index';
-import {useStoreState} from "../../stores/operational/hooks";
+import usePagination, {usePaginationProps} from "../../hooks/usePagination";
+import "./styling.css"
 
 interface Props {
     customerRequests: CustomerRequest[];
     toggleCustomerRequest: ToggleCustomerRequest;
-    onPageChange: OnPageChange;
 }
 
 const CustomerRequestList: React.FC<Props> =
     ({ customerRequests,
          toggleCustomerRequest,
-         onPageChange
     }) => {
 
+        const _DATA = usePagination({
+            data: customerRequests,
+            itemsPerPage: 5
+        } as usePaginationProps)
+
+        const onPageChange: OnPageChange = (event, data) => {
+            _DATA.jump(data.activePage);
+        };
+
     return (
-        <div>
-            {customerRequests.map((customerRequest) => (
+        <div className="customer-tasks-container">
+            {_DATA.currentData().map((customerRequest: CustomerRequest) => (
                 <CustomerRequestItem
                     key={customerRequest.customerRequestDescription}
                     customerRequest={customerRequest}
@@ -26,11 +34,11 @@ const CustomerRequestList: React.FC<Props> =
             ))}
             <Pagination
                 defaultActivePage={1}
+                className="pagination-menu"
                 firstItem={null}
                 lastItem={null}
-                siblingRange={1}
                 onPageChange={onPageChange}
-                totalPages={Math.floor(customerRequests.length / 5) + 1}
+                totalPages={customerRequests.length <= 5 ? 1 : Math.ceil(customerRequests.length / 5)}
             />
         </div>
     )

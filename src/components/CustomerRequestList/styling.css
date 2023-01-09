@@ -1,0 +1,9 @@
+.pagination-menu {
+    place-self: flex-end;
+    margin-bottom: 1rem !important;
+}
+
+.customer-tasks-container {
+    display: flex;
+    flex-direction: column;
+}
