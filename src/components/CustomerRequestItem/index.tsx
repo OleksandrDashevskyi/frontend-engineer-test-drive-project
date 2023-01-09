@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Checkbox, Image, Icon } from 'semantic-ui-react';
 import "./styling.css"
 
-interface Props {
+export interface Props {
     customerRequest: CustomerRequest,
     toggleCustomerRequest: ToggleCustomerRequest
 }

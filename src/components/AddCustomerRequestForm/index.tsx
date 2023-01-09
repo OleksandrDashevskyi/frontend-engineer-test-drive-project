@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Input, Form, Button, Label } from "semantic-ui-react";
+import { Input, Form, Button } from "semantic-ui-react";
 import "./styling.css"
 
-interface Props {
+export interface Props {
     addCustomerRequest: AddCustomerRequest;
 }
 
