@@ -16,7 +16,7 @@ describe("<AddCustomerRequestForm />", () => {
 })
 
 describe("Test if Button in AddCustomerRequestFrom works as expected", () => {
-    it("should render on render parent component", () => {
+    it("should click happens", () => {
         const mockAddCustomerRequest = vi.fn();
         render(<AddCustomerRequestForm addCustomerRequest={mockAddCustomerRequest} />)
         const button = screen.getByTestId("addRequestButton")
