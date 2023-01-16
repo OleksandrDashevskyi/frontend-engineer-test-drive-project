@@ -21,6 +21,7 @@ const AddCustomerRequestForm: React.FC<Props> = ({ addCustomerRequest }) => {
                 <Button
                     basic
                     color="blue"
+                    data-testid="addRequestButton"
                     onClick={(e) => {
                         e.preventDefault();
                         addCustomerRequest(requestDescription);
